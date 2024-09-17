@@ -30,7 +30,7 @@ func NewLogServiceAdapter(orderServiceUrl string) (*logserviceAdapter, error) {
 	return &logserviceAdapter{logservice: client}, nil
 }
 
-func (a *logserviceAdapter) Add(ctx context.Context, o *domain.Logservice) error {
+func (a *logserviceAdapter) AddLog(ctx context.Context, o *domain.Logservice) error {
 
 	_, err := a.logservice.Add(ctx, &logservice.CreateLogRequest{
 		App:  o.App,
