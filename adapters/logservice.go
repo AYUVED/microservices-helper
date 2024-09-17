@@ -1,4 +1,4 @@
-package Logservice
+package adapters
 
 import (
 	"context"
@@ -10,11 +10,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-type Adapter struct {
+type logserviceAdapter struct {
 	logservice logservice.LogClient
 }
 
-func NewLogServiceAdapter(orderServiceUrl string) (*Adapter, error) {
+func NewLogServiceAdapter(orderServiceUrl string) (*logserviceAdapter, error) {
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
@@ -27,10 +27,10 @@ func NewLogServiceAdapter(orderServiceUrl string) (*Adapter, error) {
 
 	client := logservice.NewLogClient(conn)
 	//defer conn.Close()
-	return &Adapter{logservice: client}, nil
+	return &logserviceAdapter{logservice: client}, nil
 }
 
-func (a *Adapter) LogService(ctx context.Context, o *domain.Logservice) error {
+func (a *logserviceAdapter) LogService(ctx context.Context, o *domain.Logservice) error {
 
 	_, err := a.logservice.Add(ctx, &logservice.CreateLogRequest{
 		App:  o.App,

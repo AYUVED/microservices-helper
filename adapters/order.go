@@ -10,11 +10,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-type Adapter struct {
+type orderAdapter struct {
 	order order.OrderClient
 }
 
-func NewOrderAdapter(orderServiceUrl string) (*Adapter, error) {
+func NewOrderAdapter(orderServiceUrl string) (*orderAdapter, error) {
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
@@ -27,10 +27,10 @@ func NewOrderAdapter(orderServiceUrl string) (*Adapter, error) {
 
 	client := order.NewOrderClient(conn)
 	//defer conn.Close()
-	return &Adapter{order: client}, nil
+	return &orderAdapter{order: client}, nil
 }
 
-func (a *Adapter) Order(ctx context.Context, o *domain.Order) error {
+func (a *orderAdapter) Order(ctx context.Context, o *domain.Order) error {
 	var items []*order.OrderItem
 	for _, item := range o.OrderItems {
 		items = append(items, &order.OrderItem{
