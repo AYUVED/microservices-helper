@@ -32,15 +32,6 @@ func NewLogServiceAdapter(orderServiceUrl string) (*Adapter, error) {
 
 func (a *Adapter) LogService(ctx context.Context, o *domain.Logservice) error {
 
-	// var items []*logservice.OrderItem
-	// for _, item := range o.OrderItems {
-	// 	items = append(items, &logservice..OrderItem{
-	// 		ProductCode: item.ProductCode,
-	// 		UnitPrice:   item.UnitPrice,
-	// 		Quantity:    item.Quantity,
-	// 	})
-	// }
-
 	_, err := a.logservice.Add(ctx, &logservice.CreateLogRequest{
 		App:  o.App,
 		Name: o.Name,
