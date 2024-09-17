@@ -1,4 +1,4 @@
-package logservice
+package Logservice
 
 import (
 	"context"
