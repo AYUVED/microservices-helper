@@ -1,4 +1,4 @@
-package Order
+package adapters
 
 import (
 	"context"
