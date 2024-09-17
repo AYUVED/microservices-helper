@@ -3,13 +3,13 @@ module github.com/ayuved/microservices-helper
 go 1.22.3
 
 require (
+	github.com/ayuved/microservices-proto/golang/logservice v1.0.1
 	github.com/ayuved/microservices-proto/golang/order v1.0.2
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.55.0
 	google.golang.org/grpc v1.66.2
 )
 
 require (
-	github.com/ayuved/microservices-proto/golang/logservice v1.0.1 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	go.opentelemetry.io/otel v1.30.0 // indirect
