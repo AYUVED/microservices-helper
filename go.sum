@@ -1,3 +1,5 @@
+github.com/ayuved/microservices-proto/golang/logservice v1.0.1 h1:5Ipa5rnwieHEcetvi9dhzXoq47iyPIxjJkTuuK8zqWY=
+github.com/ayuved/microservices-proto/golang/logservice v1.0.1/go.mod h1:VffztM9uzZzd8PYC+GmE8HmBUWK12SGHX2YVoiQAIMo=
 github.com/ayuved/microservices-proto/golang/order v1.0.2 h1:y5xn2Eutjz39wRtnQYvdw18nIFMg/BoDeK7p8VTnthg=
 github.com/ayuved/microservices-proto/golang/order v1.0.2/go.mod h1:8LZDb+XhykqRYOJ36zJHD7em/y0G6LQGGIHVjBnjO7g=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

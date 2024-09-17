@@ -1,10 +1,10 @@
-package adapters
+package order
 
 import (
 	"context"
 
-	"github.com/ayuved/microservices-proto/golang/order"
 	"github.com/ayuved/microservices-helper/domain"
+	"github.com/ayuved/microservices-proto/golang/order"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

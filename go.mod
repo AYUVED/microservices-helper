@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/ayuved/microservices-proto/golang/logservice v1.0.1 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	go.opentelemetry.io/otel v1.30.0 // indirect
