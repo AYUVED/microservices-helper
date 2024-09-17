@@ -14,7 +14,7 @@ type Adapter struct {
 	order order.OrderClient
 }
 
-func NewAdapter(orderServiceUrl string) (*Adapter, error) {
+func NewOrderAdapter(orderServiceUrl string) (*Adapter, error) {
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
