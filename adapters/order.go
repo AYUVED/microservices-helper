@@ -2,6 +2,7 @@ package adapters
 
 import (
 	"context"
+	"log"
 
 	"github.com/ayuved/microservices-helper/domain"
 	"github.com/ayuved/microservices-proto/golang/order"
@@ -15,16 +16,18 @@ type orderAdapter struct {
 }
 
 func NewOrderAdapter(orderServiceUrl string) (*orderAdapter, error) {
+	log.Println("NewOrderAdapter", orderServiceUrl)
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithUnaryInterceptor(otelgrpc.UnaryClientInterceptor()),
 	)
+	log.Println("NewOrderAdapter", opts)
 	conn, err := grpc.Dial(orderServiceUrl, opts...)
 	if err != nil {
 		return nil, err
 	}
-
+	log.Println("NewOrderAdapter", conn)
 	client := order.NewOrderClient(conn)
 	//defer conn.Close()
 	return &orderAdapter{order: client}, nil
