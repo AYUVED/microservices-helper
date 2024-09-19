@@ -2,6 +2,7 @@ package adapters
 
 import (
 	"context"
+	"log"
 
 	"github.com/ayuved/microservices-helper/domain"
 	"github.com/ayuved/microservices-proto/golang/logservice"
@@ -15,18 +16,21 @@ type logserviceAdapter struct {
 }
 
 func NewLogServiceAdapter(orderServiceUrl string) (*logserviceAdapter, error) {
+	log.Println("NewLogServiceAdapter", orderServiceUrl)
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithUnaryInterceptor(otelgrpc.UnaryClientInterceptor()),
 	)
+	log.Println("NewLogServiceAdapter", opts)
 	conn, err := grpc.Dial(orderServiceUrl, opts...)
 	if err != nil {
 		return nil, err
 	}
-
+	log.Println("NewLogServiceAdapter", conn)
 	client := logservice.NewLogClient(conn)
 	//defer conn.Close()
+	log.Println("NewLogServiceAdapter", client)
 	return &logserviceAdapter{logservice: client}, nil
 }
 
