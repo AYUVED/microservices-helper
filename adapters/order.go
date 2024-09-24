@@ -33,7 +33,7 @@ func NewOrderAdapter(orderServiceUrl string) (*orderAdapter, error) {
 	return &orderAdapter{order: client}, nil
 }
 
-func (a *orderAdapter) Order(ctx context.Context, o *domain.Order) (*order.CreateOrderResponse, error) {
+func (a *orderAdapter) CreateOrder(ctx context.Context, o *domain.Order) (*order.CreateOrderResponse, error) {
 	var items []*order.OrderItem
 	for _, item := range o.OrderItems {
 		items = append(items, &order.OrderItem{
