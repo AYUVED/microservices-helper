@@ -8,7 +8,7 @@ import (
 	"github.com/ayuved/microservices-helper/domain"
 	"github.com/ayuved/microservices-helper/middleware"
 	"github.com/ayuved/microservices-proto/golang/order"
-	"github.com/go-chi/chi/middleware"
+	
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
