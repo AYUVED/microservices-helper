@@ -3,10 +3,12 @@ package adapters
 import (
 	"context"
 	"log"
+	"time"
 
 	"github.com/ayuved/microservices-helper/domain"
+	"github.com/ayuved/microservices-helper/middleware"
 	"github.com/ayuved/microservices-proto/golang/order"
-	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+	"github.com/go-chi/chi/middleware"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -16,14 +18,16 @@ type orderAdapter struct {
 }
 
 func NewOrderAdapter(orderServiceUrl string) (*orderAdapter, error) {
+	cb := middleware.NewCircuitBreaker(5, 1*time.Minute)
+
 	log.Println("NewOrderAdapter", orderServiceUrl)
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithUnaryInterceptor(otelgrpc.UnaryClientInterceptor()),
+		grpc.WithUnaryInterceptor(middleware.CircuitBreakerClientInterceptor(cb)),
 	)
 	log.Println("NewOrderAdapter", opts)
-	conn, err := grpc.Dial(orderServiceUrl, opts...)
+	conn, err := grpc.NewClient(orderServiceUrl, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -3,11 +3,13 @@ package adapters
 import (
 	"context"
 	"log"
-
+	"time"
+	
 	"github.com/ayuved/microservices-helper/domain"
 	"github.com/ayuved/microservices-proto/golang/logservice"
-	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+	grpc_retry "github.com/grpc-ecosystem/go-grpc-middleware/retry"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
@@ -20,10 +22,14 @@ func NewLogServiceAdapter(orderServiceUrl string) (*logserviceAdapter, error) {
 	var opts []grpc.DialOption
 	opts = append(opts,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithUnaryInterceptor(otelgrpc.UnaryClientInterceptor()),
-	)
+		grpc.WithUnaryInterceptor(grpc_retry.UnaryClientInterceptor(
+			grpc_retry.WithCodes(codes.Unavailable, codes.ResourceExhausted),
+			grpc_retry.WithMax(5),
+			grpc_retry.WithBackoff(grpc_retry.BackoffLinear(time.Second))),
+		))
 	log.Println("NewLogServiceAdapter", opts)
-	conn, err := grpc.Dial(orderServiceUrl, opts...)
+
+	conn, err := grpc.NewClient(orderServiceUrl, opts...)
 	if err != nil {
 		return nil, err
 	}
