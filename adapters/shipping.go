@@ -47,7 +47,9 @@ func (a *shippingAdapter) CreateShipping(ctx context.Context, o *domain.Shipping
 		})
 	}
 	result, err := a.shipping.Create(ctx, &shipping.CreateShippingRequest{
-		UserId:     o.CustomerID,
+		ShippingID:  o.ShippingID,
+		CustomerID:  o.CustomerID,
+
 		ShippingItems: items,
 	})
 	return result, err

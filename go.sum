@@ -4,8 +4,8 @@ github.com/ayuved/microservices-proto/golang/logservice v1.0.1 h1:5Ipa5rnwieHEce
 github.com/ayuved/microservices-proto/golang/logservice v1.0.1/go.mod h1:VffztM9uzZzd8PYC+GmE8HmBUWK12SGHX2YVoiQAIMo=
 github.com/ayuved/microservices-proto/golang/order v1.0.2 h1:y5xn2Eutjz39wRtnQYvdw18nIFMg/BoDeK7p8VTnthg=
 github.com/ayuved/microservices-proto/golang/order v1.0.2/go.mod h1:8LZDb+XhykqRYOJ36zJHD7em/y0G6LQGGIHVjBnjO7g=
-github.com/ayuved/microservices-proto/golang/shipping v1.0.2 h1:FstkJnn80sXJVzebOnF/e9JIp84AEIXIM06gmqZC5Kc=
-github.com/ayuved/microservices-proto/golang/shipping v1.0.2/go.mod h1:cmLkDCH9AbEwIyc8gDM1EG8LqQ0KpO17P/1uoMeD7gs=
+github.com/ayuved/microservices-proto/golang/shipping v1.0.3 h1:sG+kvLRs9a67DJwgV9F7i+w0ueaQJvXd6OQucXItx/Q=
+github.com/ayuved/microservices-proto/golang/shipping v1.0.3/go.mod h1:cmLkDCH9AbEwIyc8gDM1EG8LqQ0KpO17P/1uoMeD7gs=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
