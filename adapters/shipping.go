@@ -8,7 +8,7 @@ import (
 	"github.com/ayuved/microservices-helper/domain"
 	"github.com/ayuved/microservices-helper/middleware"
 	"github.com/ayuved/microservices-proto/golang/shipping"
-	
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -47,10 +47,9 @@ func (a *shippingAdapter) CreateShipping(ctx context.Context, o *domain.Shipping
 		})
 	}
 	result, err := a.shipping.Create(ctx, &shipping.CreateShippingRequest{
-		ShippingID:  o.ShippingID,
-		CustomerID:  o.CustomerID,
-
-		ShippingItems: items,
+		order_id:      o.OrderID,
+		address_id:    o.AddressID,
+		shipping_items: items,
 	})
 	return result, err
 }
