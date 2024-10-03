@@ -38,18 +38,18 @@ func NewShippingAdapter(shippingServiceUrl string) (*shippingAdapter, error) {
 }
 
 func (a *shippingAdapter) CreateShipping(ctx context.Context, o *domain.Shipping) (*shipping.CreateShippingResponse, error) {
-	var items []*shipping.ShippingItem
-	for _, item := range o.ShippingItems {
-		items = append(items, &shipping.ShippingItem{
-			ProductCode: item.ProductCode,
-			UnitPrice:   item.UnitPrice,
-			Quantity:    item.Quantity,
-		})
-	}
-	result, err := a.shipping.Create(ctx, &shipping.CreateShippingRequest{
+	// var items []*shipping.ShippingItem
+	// for _, item := range o.ShippingItems {
+	// 	items = append(items, &shipping.ShippingItem{
+	// 		ProductCode: item.ProductCode,
+	// 		UnitPrice:   item.UnitPrice,
+	// 		Quantity:    item.Quantity,
+	// 	})
+	// }
+	 result, err := a.shipping.Create(ctx, &shipping.CreateShippingRequest{
 		OrderId:      o.OrderID,
 		AddressId:    o.AddressID,
-		ShippingItems: items,
+		// ShippingItems: items,
 
 	})
 	return result, err
