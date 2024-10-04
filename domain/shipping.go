@@ -38,11 +38,12 @@ type ShippingItem struct {
 	ShippingID  int64   `json:"shipping_id"`
 }
 
-func NewShipping(customerId int64, shippingItems []ShippingItem) Shipping {
+func NewShipping(orderId int64, addressId int64, shippingItems []ShippingItem) Shipping {
 	return Shipping{
 		CreatedAt:     time.Now().Unix(),
 		Status:        "Pending",
-		CustomerID:    customerId,
+		OrderID:       orderId,
+		AddressID:     addressId,
 		ShippingItems: shippingItems,
 	}
 }
