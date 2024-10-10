@@ -10,6 +10,7 @@ type Logservice struct {
 	Type      string    `json:"type"`
 	Status    string    `json:"status"`
 	ProcessId string    `json:"process_id"`
+	User      string    `json:"user"`
 	CreatedAt time.Time `json:"created_at"`
 	CreatedBy string    `json:"created_by"`
 	UpdatedAt time.Time `json:"updated_at"`
