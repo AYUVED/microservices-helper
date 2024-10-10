@@ -45,7 +45,12 @@ func (a *logserviceAdapter) AddLog(ctx context.Context, o *domain.Logservice) er
 	_, err := a.logservice.Add(ctx, &logservice.CreateLogRequest{
 		App:  o.App,
 		Name: o.Name,
+		Type: o.Type,
+		Status: o.Status,
+		ProcessId: o.ProcessId,
 		Data: o.Data,
+		User: o.User,
+		
 	})
 	return err
 }
