@@ -48,9 +48,9 @@ func (a *logserviceAdapter) AddLog(ctx context.Context, o *domain.Logservice) er
 		Type: o.Type,
 		Status: o.Status,
 		ProcessId: o.ProcessId,
-		Data: o.Data,
+		Data: o.Data.([]byte),
 		User: o.User,
-		
+
 	})
 	return err
 }
