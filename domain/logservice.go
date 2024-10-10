@@ -9,7 +9,7 @@ type Logservice struct {
 	Data      string    `json:"data"`
 	Type      string    `json:"type"`
 	Status    string    `json:"status"`
-	ProcessID string    `json:"process_id"`
+	ProcessId string    `json:"process_id"`
 	CreatedAt time.Time `json:"created_at"`
 	CreatedBy string    `json:"created_by"`
 	UpdatedAt time.Time `json:"updated_at"`
@@ -26,7 +26,7 @@ func NewLogservice(app string, name string, data string, processId string,
 		Data:      data,
 		Type:      logType,
 		Status:    logStatus,
-		ProcessID: processId,
+		ProcessId: processId,
 		CreatedAt: time.Now(),
 		CreatedBy: user,
 	}
