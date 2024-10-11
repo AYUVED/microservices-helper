@@ -4,8 +4,8 @@ go 1.22.3
 
 require (
 	github.com/ayuved/microservices-proto/golang/logservice v1.0.12
-	github.com/ayuved/microservices-proto/golang/order v1.0.10
-	github.com/ayuved/microservices-proto/golang/shipping v1.0.10
+	github.com/ayuved/microservices-proto/golang/order v1.0.13
+	github.com/ayuved/microservices-proto/golang/shipping v1.0.13
 	google.golang.org/grpc v1.66.2
 )
 
