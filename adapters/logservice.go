@@ -2,15 +2,18 @@ package adapters
 
 import (
 	"context"
+	"encoding/json"
 	"log"
 	"time"
-	
+
 	"github.com/ayuved/microservices-helper/domain"
 	"github.com/ayuved/microservices-proto/golang/logservice"
 	grpc_retry "github.com/grpc-ecosystem/go-grpc-middleware/retry"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
+	// "google.golang.org/protobuf/proto"
+	// "google.golang.org/protobuf/types/known/anypb"
 )
 
 type logserviceAdapter struct {
@@ -41,16 +44,35 @@ func NewLogServiceAdapter(orderServiceUrl string) (*logserviceAdapter, error) {
 }
 
 func (a *logserviceAdapter) AddLog(ctx context.Context, o *domain.Logservice) error {
+	//data := map[string] o.Data
+	jsonBytes, err := json.Marshal(o.Data)
+	if err != nil {
+		log.Fatalf("Failed to marshal data to JSON: %v", err)
+	  }
+	// dataBytes, err  := interfaceToProtoBytes(o.Data)
+	// if err != nil {
+	// 	return err
+	// }
 
-	_, err := a.logservice.Add(ctx, &logservice.CreateLogRequest{
+	_, err = a.logservice.Add(ctx, &logservice.CreateLogRequest{
 		App:  o.App,
 		Name: o.Name,
 		Type: o.Type,
 		Status: o.Status,
 		ProcessId: o.ProcessId,
-		Data: o.Data.([]byte),
+		Data: string(jsonBytes),
 		User: o.User,
 
 	})
 	return err
 }
+// func interfaceToProtoBytes(data interface{}) ([]byte, error) {
+// 	// Convert the data to a protobuf Any message
+// 	// anyMsg, err := anypb.New(&any.Any{Value: []byte(data.(string))})
+// 	// if err != nil {
+// 	// 	return nil, err
+// 	// }
+
+// 	// Marshal the Any message to bytes
+// 	return proto.Marshal(data)
+// }
