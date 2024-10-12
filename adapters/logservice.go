@@ -49,10 +49,7 @@ func (a *logserviceAdapter) AddLog(ctx context.Context, o *domain.Logservice) er
 	if err != nil {
 		log.Fatalf("Failed to marshal data to JSON: %v", err)
 	  }
-	// dataBytes, err  := interfaceToProtoBytes(o.Data)
-	// if err != nil {
-	// 	return err
-	// }
+
 
 	_, err = a.logservice.Add(ctx, &logservice.CreateLogRequest{
 		App:  o.App,
