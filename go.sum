@@ -4,10 +4,10 @@ github.com/ayuved/microservices-proto/golang/eventEmitter v1.0.0 h1:d03oXYogkfvU
 github.com/ayuved/microservices-proto/golang/eventEmitter v1.0.0/go.mod h1:SlR3MN2i5/J1TWgefHUguJKg9twkOzZNcto5taZJQdg=
 github.com/ayuved/microservices-proto/golang/logservice v1.0.17 h1:UJy7UzUIxpAg0nrokqAcQSQ928SEvAgmOWU5qTivyPs=
 github.com/ayuved/microservices-proto/golang/logservice v1.0.17/go.mod h1:VffztM9uzZzd8PYC+GmE8HmBUWK12SGHX2YVoiQAIMo=
-github.com/ayuved/microservices-proto/golang/order v1.0.14 h1:8L3/sfVDhu+yyvgwwYrqpPFiGx9u3465Ir/dZTjLAPQ=
-github.com/ayuved/microservices-proto/golang/order v1.0.14/go.mod h1:8LZDb+XhykqRYOJ36zJHD7em/y0G6LQGGIHVjBnjO7g=
-github.com/ayuved/microservices-proto/golang/shipping v1.0.14 h1:H2oWQhLjoglt2s+bBLk4wbe+Gv/YiNCY2/kLASEfGzQ=
-github.com/ayuved/microservices-proto/golang/shipping v1.0.14/go.mod h1:cmLkDCH9AbEwIyc8gDM1EG8LqQ0KpO17P/1uoMeD7gs=
+github.com/ayuved/microservices-proto/golang/order v1.0.17 h1:xrVqjHmnnRDeA8OY7pA3NOmxTqG9gj9ytu2KqQSL/zI=
+github.com/ayuved/microservices-proto/golang/order v1.0.17/go.mod h1:8LZDb+XhykqRYOJ36zJHD7em/y0G6LQGGIHVjBnjO7g=
+github.com/ayuved/microservices-proto/golang/shipping v1.0.17 h1:nxpyb88MI/j3IhLGYDkVexV80fLhx5MjIungJFBTmmk=
+github.com/ayuved/microservices-proto/golang/shipping v1.0.17/go.mod h1:cmLkDCH9AbEwIyc8gDM1EG8LqQ0KpO17P/1uoMeD7gs=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
