@@ -3,7 +3,7 @@ module github.com/ayuved/microservices-helper
 go 1.22.3
 
 require (
-	github.com/ayuved/microservices-proto/golang/eventEmitter v1.0.0
+	github.com/ayuved/microservices-proto/golang/eventEmitter v1.0.17
 	github.com/ayuved/microservices-proto/golang/logservice v1.0.17
 	github.com/ayuved/microservices-proto/golang/order v1.0.17
 	github.com/ayuved/microservices-proto/golang/shipping v1.0.17
